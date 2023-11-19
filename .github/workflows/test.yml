@@ -28,6 +28,9 @@ jobs:
           which python3
           brew unlink python@3.12
           brew link --force python@3.11
+          rehash
+          python3 --version
+          python3 -m pip install distutils
 
       - uses: asdf-vm/actions/plugin-test@v3
         with:
