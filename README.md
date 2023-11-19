@@ -2,7 +2,7 @@
 
 <div align="left">
   <a href="https://asdf-vm.com/">
-    <img src="https://img.shields.io/badge/doc-asdf-blue" />
+    <img src="https://img.shields.io/badge/doc-asdf-blue"/>
   </a>
   <img src="https://github.com/boris-ning-usds/asdf-azure-cli/workflows/CI/badge.svg" />
   <img src="https://github.com/boris-ning-usds/asdf-azure-cli/workflows/Lint/badge.svg" />
