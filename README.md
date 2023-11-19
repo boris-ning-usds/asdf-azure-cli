@@ -1,7 +1,7 @@
 # asdf-azure-cli
 
 <div align="left">
-  <a href="https://asdf-vm.com/" target="_blank">
+  <a href="https://asdf-vm.com/">
     <img src="https://img.shields.io/badge/doc-asdf-blue" />
   </a>
   <img src="https://github.com/boris-ning-usds/asdf-azure-cli/workflows/CI/badge.svg" />
