@@ -19,11 +19,11 @@ jobs:
       matrix:
         os:
           - ubuntu-latest
-          - macos-latest
+          - macos-11
     runs-on: ${{ matrix.os }}
     steps:
       - name: Install extras
-        if: ${{ matrix.os == 'macos-latest'}}
+        if: ${{ matrix.os == 'macos-11'}}
         run: |
           brew install openssl readline sqlite3 xz zlib tcl-tk
 
