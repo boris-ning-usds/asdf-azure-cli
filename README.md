@@ -14,7 +14,7 @@
 
 Forked and modified from [itspngu](https://github.com/itspngu/asdf-azure-cli) as the project has been archived.
 
-[azure-cli](https://github.com/Azure/azure-cli) plugin for the [asdf version manager](https://asdf-vm.com).
+This repository is a [azure-cli](https://github.com/Azure/azure-cli) plugin for the [asdf version manager](https://asdf-vm.com). [asdf plugin](https://github.com/asdf-vm/asdf-plugins) is a convenient way to install a large number of command line tools of various versions and to upgrade with a [flat-file](https://asdf-vm.com/manage/configuration.html#tool-versions).
 
 ## Contents
 
