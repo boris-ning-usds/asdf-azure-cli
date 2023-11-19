@@ -19,16 +19,15 @@ jobs:
       matrix:
         os:
           - ubuntu-latest
-          - macos-11
+          - macos-latest
     runs-on: ${{ matrix.os }}
     steps:
       - name: Install extras
-        if: ${{ matrix.os == 'macos-11'}}
+        if: ${{ matrix.os == 'macos-latest'}}
         run: |
-          brew install bzip2 lbzip2 lzlib openssl readline sqlite3 tcl-tk xz zlib
-          brew install asdf
-          asdf plugin add python
-          LDFLAGS="-L/usr/local/opt/bzip2/lib -L/usr/local/opt/zlib/lib -L/usr/local/opt/openssl@1.1/lib" CFLAGS="-I/usr/local/opt/bzip2/include -I/usr/local/opt/zlib/include -I/usr/local/opt/openssl@1.1/include -I$(xcrun --show-sdk-path)/usr/include -Wno-implicit-function-declaration" asdf install python 3.11.6
+          which python3
+          brew unlink python@3.12
+          brew link --force python@3.11
 
       - uses: asdf-vm/actions/plugin-test@v3
         with:
