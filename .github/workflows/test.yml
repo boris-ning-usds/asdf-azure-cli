@@ -17,9 +17,16 @@ jobs:
     name: asdf plugin test
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        os:
+          - ubuntu-latest
+          - macos-latest
     runs-on: ${{ matrix.os }}
     steps:
+      - name: Install extras
+        if: ${{ matrix.os == 'macos-latest'}}
+        run: |
+          brew install openssl readline sqlite3 xz zlib tcl-tk
+
       - uses: asdf-vm/actions/plugin-test@v3
         with:
           command: az version
