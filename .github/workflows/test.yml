@@ -21,13 +21,15 @@ jobs:
           - ubuntu-latest
           - macos-latest
     runs-on: ${{ matrix.os }}
+    env:
+      PYTHON_TO_NOT_USE: "3.12"
     steps:
       - name: Install extras
         if: ${{ matrix.os == 'macos-latest'}}
         run: |
-          sudo rm -rf /Library/Frameworks/Python.framework/Versions/3.12
-          sudo rm -rf "/Applications/Python 3.12"
-          sudo find /usr/local/bin -lname '../../../Library/Frameworks/Python.framework/Versions/3.12/*' -delete
+          sudo rm -rf "/Library/Frameworks/Python.framework/Versions/${PYTHON_TO_NOT_USE}"
+          sudo rm -rf "/Applications/Python ${PYTHON_TO_NOT_USE}"
+          sudo find /usr/local/bin -lname '../../../Library/Frameworks/Python.framework/Versions/${PYTHON_TO_NOT_USE}/*' -delete
           brew link --force python@3.11
           hash -r
           python3 --version
