@@ -17,6 +17,17 @@ install() {
     )
   fi
 
+  ## Azure CLI has a hard requirement on python3
+  ##   If the user already has python3, use their version
+  ##   Otherwise, install it for them as best effort
+  SUPPORTED_PYTHON_VERSION="3.11.6"
+  if command -v python3 >/dev/null 2>&1; then
+    echo "python3 already installed"
+  else
+    echo "python3 not installed! Installing python ${SUPPORTED_PYTHON_VERSION}..."
+    asdf install python "${SUPPORTED_PYTHON_VERSION}"
+  fi
+
   mkdir -p "$ASDF_INSTALL_PATH/bin" &&
     python3 -m venv "$ASDF_INSTALL_PATH/bin/venv" &&
     "$ASDF_INSTALL_PATH/bin/venv/bin/python3" -m pip install "$ASDF_DOWNLOAD_PATH/$(get_release_filename)" &&

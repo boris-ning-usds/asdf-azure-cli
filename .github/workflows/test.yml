@@ -4,9 +4,11 @@ on:
   pull_request:
     paths:
       - "bin/*"
+      - ".github/workflows/*"
   push:
     paths:
       - "bin/*"
+      - ".github/workflows/*"
   schedule:
     - cron: "0 0 * * *"
 
@@ -18,7 +20,7 @@ jobs:
         os: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: asdf-vm/actions/plugin-test@v1
+      - uses: asdf-vm/actions/plugin-test@v3
         with:
           command: az version
         env:
