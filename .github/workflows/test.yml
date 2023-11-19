@@ -25,11 +25,7 @@ jobs:
       - name: Install extras
         if: ${{ matrix.os == 'macos-latest'}}
         run: |
-          sudo rm -rf /Library/Frameworks/Python.framework/Versions/3.12/
-          sudo rm -rf "/Applications/Python 3.12/"
-          cd /usr/local/bin && ls -l | grep "/Library/Frameworks/Python.framework/Versions/3.12" | awk '{print $9}' | sudo xargs rm
-          brew uninstall python@3.12
-          brew unlink python@3.12
+          brew uninstall --ignore-dependencies python@3.12
           brew link --force python@3.11
           hash -r
           python3 --version
