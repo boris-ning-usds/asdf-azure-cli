@@ -1,10 +1,13 @@
-# asdf-azure-cli ![CI](https://github.com/itspngu/asdf-azure-cli/workflows/CI/badge.svg) ![Lint](https://github.com/itspngu/asdf-azure-cli/workflows/Lint/badge.svg)
+# asdf-azure-cli
 
-[azure-cli](https://github.com/Azure/azure-cli) plugin for the [asdf version manager](https://asdf-vm.com).
+![CI](https://github.com/boris-ning-usds/asdf-azure-cli/workflows/CI/badge.svg)
+![Lint](https://github.com/boris-ning-usds/asdf-azure-cli/workflows/Lint/badge.svg)
+[![License](https://img.shields.io/badge/License-BSD_0--Clause-orange.svg)](https://choosealicense.com/licenses/0bsd/)
+[![Doc](https://img.shields.io/badge/Doc-asdf-blue)](https://asdf-vm.com/)
 
-## ARCHIVAL NOTICE
+Forked and modified from [itspngu](https://github.com/itspngu/asdf-azure-cli) as the project has been archived.
 
-I stopped using asdf-vm and archived this repository. If you're using this plugin, please consider forking the repository and having it added to the upstream plugin list at https://github.com/asdf-vm/asdf-plugins.
+This repository is a [azure-cli](https://github.com/Azure/azure-cli) plugin for the [asdf version manager](https://asdf-vm.com). [asdf plugin](https://github.com/asdf-vm/asdf-plugins) is a convenient way to install a large number of command line tools of various versions and to upgrade with a [flat-file](https://asdf-vm.com/manage/configuration.html#tool-versions).
 
 ## Contents
 
@@ -15,31 +18,31 @@ I stopped using asdf-vm and archived this repository. If you're using this plugi
 ## Plugin Dependencies
 
 - `curl` - for azure-cli downloads from upstream releases
-- `python3` (with `pip` and `venv` modules) - for installing and running the cli
+- `python3` (with `pip` and `venv` modules) - for installing and running the cli where [version 2.54.0 release supports python 3.11](https://github.com/MicrosoftDocs/azure-docs-cli/blob/main/docs-ref-conceptual/release-notes-azure-cli.md#packaging).
 
 ## Install
 
 Plugin:
 
-```shell_session
-$ asdf plugin-add azure-cli https://github.com/itspngu/asdf-azure-cli
+```bash
+asdf plugin-add azure-cli https://github.com/boris-ning-usds/asdf-azure-cli
 ```
 
 azure-cli:
 
-```shell_session
+```bash
 # Show all installable versions
-$ asdf list-all azure-cli
+asdf list-all azure-cli
 
 # Install specific version
-$ asdf install azure-cli latest
+asdf install azure-cli latest
 
 # Set a version globally (in your ~/.tool-versions file)
-$ asdf global azure-cli latest
+asdf global azure-cli latest
 
 # Run azure-cli
-$ az --version
-azure-cli                         2.32.0
+az --version
+> azure-cli 2.54.0
 [...]
 ```
 
@@ -47,6 +50,12 @@ Refer to the [upstream azure-cli repository](https://github.com/Azure/azure-cli)
 
 Check the [asdf](https://github.com/asdf-vm/asdf) readme for more instructions on how to install & manage versions.
 
+## Uninstall
+
+```bash
+asdf plguin remove azure-cli
+```
+
 ## License
 
-See [LICENSE](LICENSE)
+See [LICENSE](LICENSE).

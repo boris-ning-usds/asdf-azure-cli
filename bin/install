@@ -11,10 +11,24 @@ source "$(dirname "$0")/lib"
 install() {
   if [ ! -d "$ASDF_DOWNLOAD_PATH" ]; then
     # shellcheck source=SCRIPTDIR/download
-    source "$(dirname "$0")/download" || (
+    # shellcheck disable=SC2317
+    if source "$(dirname "$0")/download"; then
+      echo "azure-cli $ASDF_INSTALL_VERSION downloaded successfully"
+    else
       echo "Downloading azure-cli $ASDF_INSTALL_VERSION failed" 1>&2
       exit 1
-    )
+    fi
+  fi
+
+  ## Azure CLI has a hard requirement on python3
+  ##   If the user already has python3, use their version
+  ##   Otherwise, install it for them as best effort
+  SUPPORTED_PYTHON_VERSION="3.11.6"
+  if command -v python3 >/dev/null 2>&1; then
+    echo "python3 already installed"
+  else
+    echo "python3 not installed! Installing python ${SUPPORTED_PYTHON_VERSION}..."
+    asdf install python "${SUPPORTED_PYTHON_VERSION}"
   fi
 
   mkdir -p "$ASDF_INSTALL_PATH/bin" &&
