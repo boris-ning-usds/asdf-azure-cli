@@ -1,16 +1,9 @@
 # asdf-azure-cli
 
-<div align="left">
-  <img src="https://github.com/boris-ning-usds/asdf-azure-cli/workflows/CI/badge.svg" />
-  <img src="https://github.com/boris-ning-usds/asdf-azure-cli/workflows/Lint/badge.svg" />
-  <a style="text-decoration:none" href="https://choosealicense.com/licenses/0bsd/">
-    <img src="https://img.shields.io/badge/License-BSD_0--Clause-orange.svg"/>
-  </a>
-  <a style="text-decoration:none" ref="https://asdf-vm.com/">
-    <img src="https://img.shields.io/badge/doc-asdf-blue"/>
-  </a>
-</div>
-<br/>
+![CI](https://github.com/boris-ning-usds/asdf-azure-cli/workflows/CI/badge.svg)
+![Lint](https://github.com/boris-ning-usds/asdf-azure-cli/workflows/Lint/badge.svg)
+[![License](https://img.shields.io/badge/License-BSD_0--Clause-orange.svg)](https://choosealicense.com/licenses/0bsd/)
+[![Doc](https://img.shields.io/badge/Doc-asdf-blue)](https://asdf-vm.com/)
 
 Forked and modified from [itspngu](https://github.com/itspngu/asdf-azure-cli) as the project has been archived.
 
