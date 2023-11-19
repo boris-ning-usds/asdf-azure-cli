@@ -1,10 +1,13 @@
 name: Lint
 on:
   workflow_dispatch:
-  pull_request:
+  push:
+    branches:
+      - master
     paths:
       - "bin/*"
-  push:
+      - ".github/workflows/*"
+  pull_request:
     paths:
       - "bin/*"
 

@@ -1,16 +1,16 @@
 name: CI
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - master
+    paths:
+      - "bin/*"
+      - ".github/workflows/*"
   pull_request:
     paths:
       - "bin/*"
       - ".github/workflows/*"
-  push:
-    paths:
-      - "bin/*"
-      - ".github/workflows/*"
-  schedule:
-    - cron: "0 0 * * *"
 
 jobs:
   plugin_test:
