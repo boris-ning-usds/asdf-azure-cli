@@ -11,10 +11,13 @@ source "$(dirname "$0")/lib"
 install() {
   if [ ! -d "$ASDF_DOWNLOAD_PATH" ]; then
     # shellcheck source=SCRIPTDIR/download
-    source "$(dirname "$0")/download" || (
+    # shellcheck disable=SC2317
+    if source "$(dirname "$0")/download"; then
+      echo "azure-cli $ASDF_INSTALL_VERSION downloaded successfully"
+    else
       echo "Downloading azure-cli $ASDF_INSTALL_VERSION failed" 1>&2
       exit 1
-    )
+    fi
   fi
 
   ## Azure CLI has a hard requirement on python3
