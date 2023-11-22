@@ -53,7 +53,7 @@ Check the [asdf](https://github.com/asdf-vm/asdf) readme for more instructions o
 ## Uninstall
 
 ```bash
-asdf plguin remove azure-cli
+asdf plugin remove azure-cli
 ```
 
 ## License
