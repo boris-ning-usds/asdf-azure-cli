@@ -14,6 +14,8 @@ on:
 
 jobs:
   plugin_test:
+    permissions:
+      contents: read
     name: asdf plugin test
     strategy:
       matrix:
@@ -34,7 +36,7 @@ jobs:
           hash -r
           python3 --version
 
-      - uses: asdf-vm/actions/plugin-test@v3
+      - uses: asdf-vm/actions/plugin-test@05e0d2ed97b598bfce82fd30daf324ae0c4570e6 # v3.0.2
         with:
           command: az version
         env:
