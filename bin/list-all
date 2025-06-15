@@ -5,7 +5,7 @@ source "$(dirname "$0")/lib"
 
 list_all() {
   curl -fsSL "https://pypi.org/simple/$(get_package_name)" |
-    sed -En -e "s;.*<a.*>$(get_package_name)-([0-9]+.[0-9]+.[0-9]+)-py3-none-any.whl</a.*;\1;p" |
+    sed -En -e "s|.*>\s*$(get_package_name)-([0-9]+\.[0-9]+\.[0-9]+)-py3-none-any\.whl<.*|\1|p" |
     sort_versions | paste -sd ' ' -
 }
 
