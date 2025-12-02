@@ -21,8 +21,6 @@ resolve_version() {
 }
 
 install() {
-  # Resolve "latest" to actual latest version
-  ASDF_INSTALL_VERSION=$(resolve_version "$ASDF_INSTALL_VERSION")
   if [ ! -d "$ASDF_DOWNLOAD_PATH" ]; then
     # shellcheck source=SCRIPTDIR/download
     # shellcheck disable=SC2317
@@ -32,6 +30,14 @@ install() {
       echo "Downloading azure-cli $ASDF_INSTALL_VERSION failed" 1>&2
       exit 1
     fi
+  fi
+
+  # Read the version that was actually downloaded
+  if [ -f "$ASDF_DOWNLOAD_PATH/.version" ]; then
+    ASDF_INSTALL_VERSION=$(cat "$ASDF_DOWNLOAD_PATH/.version")
+  else
+    # Fallback: resolve "latest" if .version file doesn't exist
+    ASDF_INSTALL_VERSION=$(resolve_version "$ASDF_INSTALL_VERSION")
   fi
 
   ## Azure CLI has a hard requirement on python3

@@ -22,8 +22,13 @@ download() {
   # Resolve "latest" to actual latest version
   ASDF_INSTALL_VERSION=$(resolve_version "$ASDF_INSTALL_VERSION")
 
+  # Save resolved version for install script to use
+  echo "$ASDF_INSTALL_VERSION" > "$ASDF_DOWNLOAD_PATH/.version"
+
   curl -fsSL "https://pypi.org/simple/$(get_package_name)" |
     sed -En -e "s;.*(https://files.pythonhosted.org/packages/.*/$(get_release_filename))#.*;\1;p" |
     xargs -n1 curl -fsSL -o "$ASDF_DOWNLOAD_PATH/$(get_release_filename)"
   exit $?
 }
+
+download
