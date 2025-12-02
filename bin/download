@@ -12,5 +12,3 @@ download() {
     xargs -n1 curl -fsSL -o "$ASDF_DOWNLOAD_PATH/$(get_release_filename)"
   exit $?
 }
-
-download
