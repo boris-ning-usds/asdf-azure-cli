@@ -1,6 +1,12 @@
 version: 2
 updates:
   - package-ecosystem: "github-actions"
-    directory: "/"
+    directory: /
+    groups:
+      actions:
+        patterns:
+          - "*"
     schedule:
-      interval: "daily"
+      interval: "monthly"
+    cooldown:
+      default-days: 14
